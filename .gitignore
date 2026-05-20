@@ -1,0 +1,11 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Local tooling / sessions (no relevantes al sitio)
+.agents/
+.claude/
+skills-lock.json
+
+# Figma exports (referencia local, no son parte del sitio)
+HWK — *.png
