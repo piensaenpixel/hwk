@@ -104,13 +104,34 @@
     });
   });
 
-  /* ---- Mobile menu toggle ---- */
+  /* ---- Mobile drawer ---- */
   var burger = document.querySelector(".nav-burger");
-  var links = document.querySelector(".nav-links");
-  if (burger && links) {
+  var drawer = document.querySelector(".drawer");
+  var drawerClose = drawer && drawer.querySelector(".drawer-close");
+  function openDrawer() {
+    if (!drawer) return;
+    drawer.classList.add("is-open");
+    burger.setAttribute("aria-expanded", "true");
+    document.body.classList.add("no-scroll");
+    if (drawerClose) drawerClose.focus({ preventScroll: true });
+  }
+  function closeDrawer() {
+    if (!drawer) return;
+    drawer.classList.remove("is-open");
+    burger.setAttribute("aria-expanded", "false");
+    document.body.classList.remove("no-scroll");
+    if (burger) burger.focus({ preventScroll: true });
+  }
+  if (burger && drawer) {
     burger.addEventListener("click", function () {
-      var open = links.classList.toggle("open");
-      burger.setAttribute("aria-expanded", String(open));
+      drawer.classList.contains("is-open") ? closeDrawer() : openDrawer();
+    });
+    if (drawerClose) drawerClose.addEventListener("click", closeDrawer);
+    drawer.querySelectorAll(".drawer-nav a").forEach(function (a) {
+      a.addEventListener("click", closeDrawer);
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && drawer.classList.contains("is-open")) closeDrawer();
     });
   }
 

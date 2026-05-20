@@ -20,8 +20,29 @@
     <a href="#">Equipo</a><a href="#">Invertir</a><a href="#">Noticias</a>
   </nav>
   <a href="#" class="nav-cta">Portal inversor</a>
-  <button class="nav-burger nav-cta" aria-expanded="false" aria-label="Menú">Menú</button>
+  <button class="nav-burger" type="button" aria-expanded="false" aria-controls="drawer" aria-label="Abrir menú">
+    <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+  </button>
 </header>
+
+<aside class="drawer" id="drawer" aria-label="Menú móvil">
+  <div class="drawer-head">
+    <span class="brand">HWK</span>
+    <button class="drawer-close" type="button" aria-label="Cerrar menú"></button>
+  </div>
+  <nav class="drawer-nav" aria-label="Principal">
+    <a href="index.html">Inicio</a>
+    <a href="isatis.html" aria-current="page">Fondo Isatis</a>
+    <a href="venture.html">Venture Capital</a>
+    <a href="#">Equipo</a>
+    <a href="#">Invertir</a>
+    <a href="#">Noticias</a>
+  </nav>
+  <div class="drawer-foot">
+    <a href="#" class="btn btn--solid">Portal inversor</a>
+    <small>HWK · TechInvestment</small>
+  </div>
+</aside>
 
 <main>
   <section class="hero section">
